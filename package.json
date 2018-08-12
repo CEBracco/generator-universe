@@ -1,0 +1,22 @@
+{
+  "name": "generator-universe",
+  "version": "0.1.0",
+  "description": "",
+  "files": [
+    "generate-entity",
+    "generate-dao",
+    "generate-crud-fx",
+    "generate-crud-controller",
+    "generate-crud",
+    "generate-web-crud",
+    "generate-core-crud",
+    "generate-parameter"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "yeoman-generator": "^1.1.1"
+  }
+}

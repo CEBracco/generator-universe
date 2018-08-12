@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-xs-6">
+   		<form class="form-horizontal" role="form" name="myForm" >
+
+        <%_ properties.forEach(function(property){ _%>
+        <%_   if (isValidType(property.clazz)){ _%>
+        <%_     if(getInputType(property.clazz) != 'checkbox'){ _%>
+  		  <div class="form-group">
+     			<label for="<%= property.name %>" class="col-xs-4 control-label">{{ '<%= lowerCamelCase(entityName) %>.label.<%= property.name %>' | translate }}</label>
+     			<div class="col-xs-8">
+  					<input type="<%= getInputType(property.clazz) %>" id="<%= property.name %>" placeholder="{{ '<%= lowerCamelCase(entityName) %>.placeholder.<%= property.name %>' | translate }}" class="form-control" ng-model="<%= lowerCamelCase(entityName) %>.<%= property.name %>"/>
+  				</div>
+  			</div>
+        <%_     } else { _%>
+  		  <div class="form-group">
+     			<label for="<%= property.name %>" class="col-xs-4 control-label">{{ '<%= lowerCamelCase(entityName) %>.label.<%= property.name %>' | translate }}</label>
+     			<div class="col-xs-8">
+  					<div class="checkbox">
+  					  <input id="<%= property.name %>" type="checkbox" ng-model="<%= lowerCamelCase(entityName) %>.<%= property.name %>">
+  					</div>
+  				</div>
+  			</div>
+        <%_     } _%>
+        <%_   } _%>
+        <%_ }); _%>
+
+		  </form>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-6">
+
+		<button class="btn btn-success" id="btn_create" ng-click="create();" ng-disabled="editing" ng-show="canAccess('/<%= menuName %>/<%= lowerCamelCase(entityName) %>:create<%= entityName %>') && !<%= lowerCamelCase(entityName) %>.id">
+			{{ 'default.create.new' | translate }}
+		</button>
+
+		<button class="btn btn-success" id="btn_modify" ng-click="modify();" ng-disabled="!editing" ng-show="canAccess('/<%= menuName %>/<%= lowerCamelCase(entityName) %>:modify<%= entityName %>') && <%= lowerCamelCase(entityName) %>.id">
+			{{ 'default.edit' | translate }}
+		</button>
+
+		<button class="btn btn-danger" id="btn_cancel" ng-click="cancel();" ng-disabled="!editing" ng-show="<%= lowerCamelCase(entityName) %>.id">
+			{{ 'default.cancel' | translate }}
+		</button>
+
+		<button class="btn btn-default" id="btn_search" ng-click="search();" ng-disabled="editing" ng-show="canAccess('/<%= menuName %>/<%= lowerCamelCase(entityName) %>:search<%= entityName %>')">
+			{{ 'default.search' | translate }}
+		</button>
+
+		<button class="btn btn-default" id="btn_list" ng-click="list();" ng-disabled="editing" ng-show="canAccess('/<%= menuName %>/<%= lowerCamelCase(entityName) %>:list<%= entityName %>')">
+			{{ 'default.list.all' | translate }}
+		</button>
+
+		<button class="btn btn-default" id="btn_clean" ng-click="clean();" ng-disabled="editing">
+			{{ 'default.clean' | translate }}
+		</button>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-xs-12">
+		<table class="table">
+		   	<thead>
+				<tr>
+          <%_ properties.forEach(function(property){ _%>
+					<th>{{ '<%= lowerCamelCase(entityName) %>.label.<%= property.name %>' | translate }}</th>
+          <%_ }); _%>
+          <th>{{ 'default.operations' | translate }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="<%= lowerCamelCase(entityName) %> in <%= lowerCamelCase(entityName) %>List" >
+          <%_ properties.forEach(function(property){ _%>
+					<td>{{ <%= lowerCamelCase(entityName) %>.<%= property.name %> }}</td>
+          <%_ }); _%>
+					<td>
+						<span class="glyphicon glyphicon-edit operation" ng-click="edit(<%= lowerCamelCase(entityName) %>);" ng-show="canAccess('/<%= menuName %>/<%= lowerCamelCase(entityName) %>:modify<%= entityName %>') && !editing" data-toggle="tooltip" data-placement="rigth" title="{{ 'tooltip.modify' | translate }}"></span>
+						<span class="glyphicon glyphicon-remove operation" ng-click="remove(<%= lowerCamelCase(entityName) %>);" ng-show="canAccess('/<%= menuName %>/<%= lowerCamelCase(entityName) %>:delete<%= entityName %>') && !editing" data-toggle="tooltip" data-placement="rigth" title="{{ 'tooltip.delete' | translate }}"></span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-12">
+		<div ng-paginator="" name-space="<%= lowerCamelCase(entityName) %>NameSpace"></div>
+	</div>
+</div>
