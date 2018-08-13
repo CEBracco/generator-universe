@@ -15,8 +15,9 @@ Una vez instalado, clonar el repo en algun lugar del filesystem y posicionados d
 ejecutar `npm link` para que se descarguen las dependencias del proyecto.
 
 ### Uso
-Los scripts de los comandos siempre controlan que se ejecute en un directorio que contenga los proyectos "universe-core" y "universe-web".
-Una vez ejecutado el generador va a ir pidiendo los datos al estilo "Asistente".
+- Los scripts de los comandos siempre controlan que se ejecute en un directorio que contenga los proyectos "universe-core" y "universe-web".
+- Una vez ejecutado el generador va a ir pidiendo los datos al estilo "Asistente". 
+- Luego de correr cada comando actualizar las carpetas de cada proyecto en eclipse para que sincronize los nuevos archivos en el workspace.
 
 ##### Crear un parámetro
 ```shell
