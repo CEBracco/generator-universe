@@ -20,45 +20,45 @@ Una vez ejecutado el generador va a ir pidiendo los datos al estilo "Asistente".
 
 ##### Crear un parámetro
 ```shell
-yo generate-parameter
+yo universe:generate-parameter
 ```
 
 ##### Crear una entidad
 ```shell
-yo generate-entity
+yo universe:generate-entity
 ```
 
 ##### Crear un DAO
 ```shell
-yo generate-dao
+yo universe:generate-dao
 ```
 
 #### CRUD
 Para generar una nueva entidad con su correspondientes ABM's tanto en el backend (universe-core) como en el frontend (universe-web)
-se debera ejecutar el comando `yo generate-crud`, este generador esta modularizado en varios "subgeneradores", los cuales tambien 
+se debera ejecutar el comando `yo universe:generate-crud`, este generador esta modularizado en varios "subgeneradores", los cuales tambien 
 pueden ser llamados de manera individual.
 
 ##### CRUD: Creación de FX's
 ```shell
-yo generate-crud-fx
+yo universe:generate-crud-fx
 ```
 
 ##### CRUD: Creación del Controller
 ```shell
-yo generate-crud-controller
+yo universe:generate-crud-controller
 ```
 
 ##### CRUD: Creación de View
 ```shell
-yo generate-web-crud
+yo universe:generate-web-crud
 ```
 
 ##### CRUD: Creación Backend (Entity + DAO + FX's + Controller)
 ```shell
-yo generate-core-crud
+yo universe:generate-core-crud
 ```
 
 ##### CRUD: Creación Full Stack (Entity + DAO + FX's + Controller + View)
 ```shell
-yo generate-crud
+yo universe:generate-crud
 ```
