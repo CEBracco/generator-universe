@@ -1,6 +1,6 @@
 ### Introducción
 Este generador pretende facilitar el desarrollo de nuevas funcionalidades en Universe, la idea es "Automatizar" al estilo de ciertos 
-frameworks como Symfony, Angular o RoR, ciertas tareas que realizamos en las cuales que ya estamos interiorizados, para enfocarnos 
+frameworks como Symfony, Angular o RoR, ciertas tareas que realizamos en las cuales que ya estamos interiorizados (crear nuevas entidades del modelo, nuevos parametros, migraciones, etc.), para enfocarnos 
 en cuestiones mas complejas y especificas de la nueva función a implementar. 
 El mismo provee un set de comandos que son llamados desde consola.
 
