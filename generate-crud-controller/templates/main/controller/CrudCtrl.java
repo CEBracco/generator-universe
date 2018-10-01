@@ -241,8 +241,8 @@ public class <%= entityName %>Ctrl {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/modify.json")
-	public String modifiy(@RequestBody String data) {
-		this.logger.debug("calling <%= entityName %>Ctrl.modifiy()");
+	public String modify(@RequestBody String data) {
+		this.logger.debug("calling <%= entityName %>Ctrl.modify()");
 		EntityManager em = this.getEntityManagerHolder().getEntityManager();
 		JsonResponse jsonResponse = null;
 
