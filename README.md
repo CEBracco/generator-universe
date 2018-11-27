@@ -24,7 +24,7 @@ ejecutar `npm link` para que se descarguen las dependencias del proyecto.
 yo universe:generate-parameter
 ```
 
-##### Crear un cambio de version
+##### Crear un cambio de versión
 ```shell
 yo universe:generate-version
 ```
