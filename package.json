@@ -10,7 +10,8 @@
     "generate-crud",
     "generate-web-crud",
     "generate-core-crud",
-    "generate-parameter"
+    "generate-parameter",
+    "generate-migration"
   ],
   "keywords": [
     "yeoman-generator"
