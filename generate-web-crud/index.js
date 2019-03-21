@@ -55,7 +55,7 @@ module.exports = class extends Generator {
       }
     });
   }
-  
+
   _promptingMenuName() {
     return this.prompt([{
       type    : 'input',
@@ -91,7 +91,7 @@ module.exports = class extends Generator {
     renderData.getInputType = function(javaType){
       var numericTypes = ['Integer','Long','Double','Float','int','float','double','short'];
       var booleanTypes = ['bool','Boolean'];
-      
+
       if (numericTypes.indexOf(javaType) > -1) {
         return 'number';
       } else {
@@ -105,7 +105,7 @@ module.exports = class extends Generator {
       var typesAccepted = ['Integer','Long','Double','Float','int','float','double','short','bool','Boolean','String'];
       return typesAccepted.indexOf(javaType) > -1;
     };
-    
+
     this.fs.copyTpl(
       this.templatePath('app/views/crud.html'),
       this.destinationPath('universe-web/WebContent/app/views/'+ renderData.entityName.toLowerCase() + '/' + renderData.entityName.replace(/^./, function(str){ return str.toLowerCase(); }) +'.html'),
@@ -129,7 +129,7 @@ module.exports = class extends Generator {
 
     content = content.replace(
       new RegExp(matchingLine.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')),
-      `{path: '/${renderData.menuName}/${renderData.entityName.replace(/^./, function(str){ return str.toLowerCase(); })}', template: prefix + 'app/views/${renderData.entityName.toLowerCase()}/${renderData.entityName.replace(/^./, function(str){ return str.toLowerCase(); })}.html', controller: 'controllers/${renderData.entityName.toLowerCase()}/${renderData.entityName}Ctrl', controllerName: '${renderData.entityName}Ctrl'},`
+      `{path: '/${renderData.menuName}/${renderData.entityName.replace(/^./, function(str){ return str.toLowerCase(); })}', template: prefix + 'app/views/${renderData.entityName.toLowerCase()}/${renderData.entityName.replace(/^./, function(str){ return str.toLowerCase(); })}.html' + suffix, controller: 'controllers/${renderData.entityName.toLowerCase()}/${renderData.entityName}Ctrl', controllerName: '${renderData.entityName}Ctrl'},`
       + "\n\n		    "
       + matchingLine
     );
